@@ -6,10 +6,18 @@ import java.util.Scanner;
 
 public class HospitalManagementSystem {
     //these are jst encrypted bcz of security, then pushed
-    private static final String url   ="70472";
-    private static final String useName ="3506402";
-    private static final String password ="-925313407";
+    private static final String url   =System.getenv("DB_URL"); //mysql url
+    private static final String useName =System.getenv("DB_USER");
+    private static final String password =System.getenv("DB_PASSWORD");
+    //You would then set the environment variables like this (example in a  Windows (Command Prompt):):
+//    set DB_URL=your_encrypted_url
+//    set DB_USER=your_encrypted_username
+//    set DB_PASSWORD=your_encrypted_password
 
+    //or for Windows (PowerShell):
+//    $env:DB_URL="your_encrypted_url"
+//    $env:DB_USER="your_encrypted_username"
+//    $env:DB_PASSWORD="your_encrypted_password"
     public static void main(String[] args) {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
